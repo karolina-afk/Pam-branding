@@ -21,12 +21,7 @@
         }
 
         /* --- RESET & BASE --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             background-color: #d1d5db; 
             font-family: var(--font-body);
@@ -34,20 +29,15 @@
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-display);
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; }
         em { font-style: italic; }
         strong { font-weight: bold; }
 
         /* --- A4 PAGE SETUP --- */
         .a4-section {
-            width: 297mm;
-            height: 210mm;
+            width: 100%;
+            max-width: 297mm;
+            min-height: 210mm; /* Changed from fixed height to prevent cropping */
             margin: 2rem auto;
             background-color: var(--parchment);
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -55,116 +45,103 @@
             overflow: hidden;
             page-break-after: always;
             page-break-inside: avoid;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        @page { size: A4 landscape; margin: 0; }
         @media print {
             body { background-color: white; margin: 0; padding: 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-            .a4-section { margin: 0 !important; box-shadow: none !important; width: 297mm !important; height: 210mm !important; }
+            .a4-section { margin: 0 !important; box-shadow: none !important; width: 297mm !important; min-height: 210mm !important; }
         }
 
-        /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 4rem; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-        .flex-center { display: flex; align-items: center; justify-content: center; text-align: center; }
+        /* --- ANIMATIONS --- */
+        .fade-in { animation: fadeIn ease 1.2s forwards; }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 4rem; width: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .text-center { text-align: center; }
+        .label { font-family: var(--font-body); font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
         
-        /* --- TYPOGRAPHY UTILITIES --- */
-        .label { font-family: var(--font-body); font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .text-evergreen { color: var(--evergreen); }
         .text-parchment { color: var(--parchment); }
         .text-muted-teal { color: var(--muted-teal); }
         .text-golden-orange { color: var(--golden-orange); }
-        .bg-evergreen { background-color: var(--evergreen); }
-        .bg-parchment { background-color: var(--parchment); }
-        .bg-muted-teal { background-color: var(--muted-teal); }
-        .bg-golden-orange { background-color: var(--golden-orange); }
-
-        /* --- ANIMATIONS --- */
-        .fade-in {
-            animation: fadeIn ease 1.5s;
-            animation-fill-mode: forwards;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- SPECIFIC SECTION STYLES --- */
         
-        /* Cover Page */
-        .cover-page { display: flex; flex-direction: column; justify-content: space-between; padding: 4rem; z-index: 10; }
-        .cover-page h1 { font-size: 7.5rem; margin-bottom: 1.5rem; line-height: 0.9; }
-        .cover-page h2 { font-size: 2.25rem; font-style: italic; color: var(--muted-teal); }
-        .cover-footer { display: flex; justify-content: space-between; border-top: 1px solid rgba(239, 233, 231, 0.3); padding-top: 2rem; }
+        .bg-evergreen { background-color: var(--evergreen); color: var(--parchment); }
+        .bg-parchment { background-color: var(--parchment); color: var(--evergreen); }
+        .bg-muted-teal { background-color: var(--muted-teal); color: var(--evergreen); }
+        .bg-golden-orange { background-color: var(--golden-orange); color: var(--evergreen); }
 
-        /* General Content */
-        .section-title { font-size: 3rem; margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--golden-orange); display: inline-block; }
+        /* --- LAYOUT GRIDS --- */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+
+        /* --- TYPOGRAPHY --- */
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--golden-orange); display: inline-block; }
         .section-title.full-width { display: block; border-bottom: 1px solid rgba(19, 42, 19, 0.2); }
-        .intro-text { font-size: 1.15rem; color: rgba(19, 42, 19, 0.9); }
-        .intro-text p { margin-bottom: 1.25rem; }
+        .intro-text { font-size: 1.1rem; color: rgba(19, 42, 19, 0.9); margin-bottom: 1rem; }
         .quote { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; color: var(--muted-teal); border-left: 4px solid var(--golden-orange); padding-left: 1.5rem; margin-top: 2rem; }
-        
-        /* Positioning Hero */
         .hero-statement { font-size: 3.25rem; line-height: 1.2; }
+        .divider-screen { font-size: 6rem; text-align: center; }
 
-        /* Tables */
-        .brand-table { width: 100%; border-collapse: collapse; text-align: left; }
+        /* --- TABLES --- */
+        .brand-table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem; }
         .brand-table th { font-family: var(--font-display); font-size: 1.25rem; border-bottom: 2px solid var(--muted-teal); padding: 0.75rem 1rem; }
-        .brand-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(239, 233, 231, 0.1); color: rgba(239, 233, 231, 0.8); font-size: 0.95rem; }
-        .brand-table td:first-child { font-weight: 600; color: var(--parchment); }
-        
-        /* Colors Section */
-        .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); height: 100%; }
-        .color-card { padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-end; transition: padding 0.3s; cursor: default; }
+        .brand-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(239, 233, 231, 0.1); font-size: 0.95rem; }
+        .brand-table td:first-child { font-weight: 600; color: var(--parchment); width: 20%; }
+        .sensory-table th { border-bottom-color: var(--golden-orange); }
+
+        /* --- COLOR BLOCK GRID --- */
+        .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); height: 100%; min-height: 210mm; }
+        .color-card { padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-end; transition: padding 0.3s; }
         .color-card:hover { padding-left: 3rem; padding-right: 2rem; }
-        .color-card .desc { opacity: 0; font-size: 0.875rem; transition: opacity 0.5s; margin-top: 1rem; }
-        .color-card:hover .desc { opacity: 1; }
         .color-card h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .color-card p.hex { font-size: 1.25rem; opacity: 0.7; }
+        .color-card .desc { opacity: 0; font-size: 0.875rem; transition: opacity 0.5s; margin-top: 1rem; line-height: 1.4; }
+        .color-card:hover .desc { opacity: 1; }
         .color-card.parchment { border-right: 1px solid rgba(19, 42, 19, 0.1); }
 
-        /* Typography Showcase */
-        .type-showcase h1 { font-size: 5.5rem; line-height: 1; margin-bottom: 0.5rem; }
+        /* --- TYPOGRAPHY SHOWCASE --- */
+        .type-showcase h1 { font-size: 5rem; line-height: 1; margin-bottom: 0.5rem; }
         .type-showcase.body h1 { font-family: var(--font-body); }
-        .type-showcase p { word-break: break-all; font-size: 1.05rem; opacity: 0.7; letter-spacing: 0.1em; line-height: 1.4;}
-        
-        /* Divider Screens */
-        .divider-screen { font-size: 6rem; }
-        
-        /* Posters */
-        .poster-title { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
-        .poster-logo { position: absolute; bottom: 3rem; left: 4rem; width: 4rem; opacity: 0.8; }
+        .type-showcase h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+        .type-showcase p.alphabet { word-break: break-all; font-size: 1.05rem; opacity: 0.7; letter-spacing: 0.1em; line-height: 1.5; }
 
-        /* Photo Grid */
-        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1rem; }
-        .photo-grid img { width: 100%; height: 110px; object-fit: cover; border-radius: 4px; transition: transform 0.3s; }
+        /* --- PHOTOGRAPHY GRID --- */
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .photo-grid img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; transition: transform 0.3s; }
         .photo-grid img:hover { transform: scale(1.02); }
 
-        /* Mockups - Website */
-        .mockup-container { display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; }
-        .browser-mock { width: 320px; height: 460px; background: var(--evergreen); border-radius: 8px 8px 0 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); display: flex; flex-direction: column; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);}
+        /* --- MOCKUPS: WEBSITES --- */
+        .mockup-container { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
+        .browser-mock { width: 300px; background: var(--evergreen); border-radius: 8px 8px 0 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); display: flex; flex-direction: column; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); }
         .browser-mock.alt-clip { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%); }
         .browser-bar { height: 1rem; background: #e5e7eb; display: flex; align-items: center; padding: 0 0.75rem; gap: 0.25rem; }
         .browser-dot { width: 6px; height: 6px; background: white; border-radius: 50%; }
-        .mock-hero { position: relative; height: 160px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+        .mock-hero { position: relative; padding: 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
         .mock-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(100%); mix-blend-mode: overlay; }
-        .mock-content { padding: 1.25rem; background: var(--muted-teal); }
-        .mock-footer { padding: 1.25rem; flex: 1; display: flex; gap: 1rem; background: var(--evergreen); }
-        
-        /* Mockups - Presentations (NOW SUPPORTS 6 SLIDES) */
-        .presentation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; background: #e5e7eb; padding: 1.5rem; border-radius: 12px; margin-top: 1.5rem; }
-        .slide { aspect-ratio: 16/9; padding: 1rem; position: relative; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; }
-        .slide-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(100%); mix-blend-mode: overlay; }
+        .mock-content { padding: 1.25rem; background: var(--muted-teal); color: var(--evergreen); }
+        .mock-footer { padding: 1.25rem; display: flex; gap: 1rem; background: var(--evergreen); color: var(--parchment); }
 
-        /* Mockups - Cards */
-        .card-grid { display: flex; justify-content: center; gap: 3rem; background: #e5e7eb; padding: 3rem; border-radius: 12px; margin-top: 1rem; }
-        .b-card { width: 340px; height: 200px; padding: 2rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+        /* --- MOCKUPS: PRESENTATIONS --- */
+        .presentation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; background: #e5e7eb; padding: 2rem; border-radius: 12px; margin-top: 2rem; }
+        .slide { aspect-ratio: 16/9; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: center; }
+        .slide-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(100%); mix-blend-mode: overlay; z-index: 0; }
+        .slide-content { position: relative; z-index: 10; }
+        .slide-header { border-bottom: 1px solid rgba(19,42,19,0.3); padding-bottom: 0.25rem; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: bold; }
 
+        /* --- MOCKUPS: BUSINESS CARDS --- */
+        .card-grid { display: flex; justify-content: center; gap: 3rem; background: #e5e7eb; padding: 3rem; border-radius: 12px; margin-top: 2rem; }
+        .b-card { width: 340px; aspect-ratio: 1.7/1; padding: 2rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
     </style>
 </head>
 <body>
 
-    <header class="a4-section bg-evergreen text-parchment cover-page">
+    <header class="a4-section bg-evergreen cover-page">
         <div class="fade-in">
             <h1>People Centric<br>Leadership</h1>
             <h2>Evidence that listens. Leadership that connects.</h2>
@@ -178,51 +155,110 @@
     <section class="a4-section">
         <div class="container" style="max-width: 900px;">
             <h2 class="section-title fade-in">Introduction</h2>
-            <div class="intro-text fade-in">
-                <p><strong>About This Document</strong></p>
-                <p>People Centric Leadership (PCL) exists because too many organisations treat values as a tick-box exercise, too many leaders operate without credible evidence, and too many voices go unheard. This brand was founded on the conviction that when we understand what people truly value—and how they perceive each other's values—we unlock the conditions for better leadership, stronger teams, and a more harmonious society.</p>
-                <p>These guidelines capture our strategic identity. Every decision—from colour to copy, from typography to tone—is rooted in five personality traits that define this brand: grounded, soulful, precise, quietly courageous, and purposefully warm.</p>
+            <div class="fade-in">
+                <p class="intro-text"><strong>About This Document</strong></p>
+                <p class="intro-text">People Centric Leadership (PCL) exists because too many organisations treat values as a tick-box exercise, too many leaders operate without credible evidence, and too many voices go unheard. This brand was founded on the conviction that when we understand what people truly value—and how they perceive each other's values—we unlock the conditions for better leadership, stronger teams, and a more harmonious society.</p>
+                <p class="intro-text">These guidelines capture our strategic identity. Every decision—from colour to copy, from typography to tone—is rooted in five personality traits that define this brand: grounded, soulful, precise, quietly courageous, and purposefully warm.</p>
                 <div class="quote">"This is not a rigid rulebook. PCL is a brand built on openness and human connection. Use these guidelines as a compass, not a cage."</div>
             </div>
         </div>
     </section>
 
-    <section class="a4-section bg-muted-teal text-parchment flex-center">
-        <div class="container fade-in text-center">
-            <p class="label text-evergreen" style="margin-bottom: 2rem; font-weight: bold;">Positioning</p>
+    <section class="a4-section bg-muted-teal text-center">
+        <div class="container fade-in">
+            <p class="label text-evergreen">Positioning</p>
             <h2 class="hero-statement">
                 We listen to what people truly value,<br>
                 share what they tell us without<br>
                 judgement, and equip leaders to<br>
                 connect with their people through<br>
-                <span class="text-evergreen" style="font-style: italic;">credible evidence</span> — openly, for<br>
+                <span class="text-evergreen"><em>credible evidence</em></span> — openly, for<br>
                 <span class="text-golden-orange">good.</span>
             </h2>
         </div>
     </section>
 
     <section class="a4-section">
-        <div class="container max-w-7xl">
+        <div class="container">
             <h2 class="section-title full-width fade-in">PCL Brand Identity</h2>
             <div class="grid-3 fade-in">
                 <div style="border-top: 2px solid var(--evergreen); padding-top: 1.5rem;">
                     <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand Personality</h3>
-                    <p class="intro-text" style="font-size: 0.9rem;">PCL carries the poise of a seasoned leader and the soul of a storyteller. Grounded, soulful, precise, quietly courageous, and purposefully warm — these five traits shape every interaction. The brand doesn't shout, oversell, or perform. It shows up fully, speaks with purpose, and always leaves room for others. Like wind, it adapts and flows through resistance with calm, grounded articulation rather than force.</p>
+                    <p class="intro-text" style="font-size: 0.95rem;">PCL carries the poise of a seasoned leader and the soul of a storyteller. Grounded, soulful, precise, quietly courageous, and purposefully warm — these five traits shape every interaction. The brand doesn't shout, oversell, or perform. It shows up fully, speaks with purpose, and always leaves room for others. Like wind, it adapts and flows through resistance with calm, grounded articulation rather than force.</p>
                 </div>
                 <div style="border-top: 2px solid var(--muted-teal); padding-top: 1.5rem;">
                     <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as a Product</h3>
-                    <p class="intro-text" style="font-size: 0.9rem;">PCL delivers freely accessible, evidence-first research reports and leadership insights that bridge the gap between abstract academic research and commercial consultancy. Its unique lens explores not just what people value, but how similar or different they believe others' values to be. Extended offerings include workshops, advisory sessions, sector-specific materials, and youth outreach tools.</p>
+                    <p class="intro-text" style="font-size: 0.95rem;">PCL delivers freely accessible, evidence-first research reports and leadership insights that bridge the gap between abstract academic research and commercial consultancy. Its unique lens explores not just what people value, but how similar or different they believe others' values to be. Extended offerings include workshops, advisory sessions, sector-specific materials, and youth outreach tools.</p>
                 </div>
                 <div style="border-top: 2px solid var(--golden-orange); padding-top: 1.5rem;">
                     <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as an Organisation</h3>
-                    <p class="intro-text" style="font-size: 0.9rem;">PCL is independent and self-funded, partnering only with organisations whose values align with its own. It operates across sectors and generations, proactively seeking new audiences rather than waiting for them to arrive. Founded on the conviction that research insights should be freely available, it serves as a megaphone for people's voices — never the judge of their values.</p>
+                    <p class="intro-text" style="font-size: 0.95rem;">PCL is independent and self-funded, partnering only with organisations whose values align with its own. It operates across sectors and generations, proactively seeking new audiences rather than waiting for them to arrive. Founded on the conviction that research insights should be freely available, it serves as a megaphone for people's voices — never the judge of their values.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="a4-section bg-evergreen text-parchment">
-        <div class="container max-w-7xl">
+    <section class="a4-section bg-evergreen">
+        <div class="container">
             <h2 class="section-title full-width fade-in" style="border-bottom-color: rgba(239, 233, 231, 0.3);">Brand Matrix</h2>
-            <div class="fade-in w-full">
-                <p class="label text-muted-teal" style
+            <div class="fade-in">
+                <p class="label text-muted-teal">Core Identity</p>
+                <table class="brand-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>As Product</th>
+                            <th>As Organisation</th>
+                            <th>Personality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Core</td>
+                            <td>Freely accessible, evidence-first research reports and leadership insights.</td>
+                            <td>Independent, self-funded, values-aligned partnerships only.</td>
+                            <td>Grounded warmth, quiet courage, purposeful restraint.</td>
+                        </tr>
+                        <tr>
+                            <td>Extended</td>
+                            <td>Workshops, advisory sessions, sector-specific materials, youth outreach tools.</td>
+                            <td>Cross-sector, multi-generational reach, proactive audience-seeking.</td>
+                            <td>Soulful precision, humble authority, exploratory spirit.</td>
+                        </tr>
+                        <tr>
+                            <td>Images & Symbols</td>
+                            <td>Three heritage stars, the open circle, wind-flow motifs.</td>
+                            <td>Warm photography, editorial typography, Golden Orange accents.</td>
+                            <td>Unposed authenticity, geometric with soft anchoring.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="a4-section bg-evergreen" style="border-top: 1px solid rgba(239, 233, 231, 0.1);">
+        <div class="container">
+            <h2 class="section-title full-width fade-in" style="border-bottom-color: rgba(239, 233, 231, 0.3);">Sensory Attributes</h2>
+            <div class="fade-in">
+                <table class="brand-table sensory-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Attribute 1</th>
+                            <th>Attribute 2</th>
+                            <th>Attribute 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Typography</td>
+                            <td>Editorial serif authority <br><em class="text-muted-teal">(Cormorant Garamond)</em>.</td>
+                            <td>Generous breathing space.</td>
+                            <td>Soulful, contemporary poise <br><em class="text-muted-teal">(Lora)</em>.</td>
+                        </tr>
+                        <tr>
+                            <td>Colour</td>
+                            <td>Evergreen (#132A13) grounds the warmth.</td>
+                            <td>Parchment (#EFE9E7) provides breathing space.</td>
+                            <td>Golden Orange (#E59500) for quiet courage
