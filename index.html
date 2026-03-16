@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCL Brand Guidelines | Professional Print Edition</title>
+    <title>PCL Brand Guidelines</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,182 +28,195 @@
             }
         }
     </script>
-    <style>
-        /* Screen View Aesthetics */
+    <style type="text/css">
+        /* Base Setup */
         body { 
-            background-color: #cbd5e1; 
-            margin: 0; 
-            padding: 40px 0;
+            background-color: #d1d5db; 
+            -webkit-print-color-adjust: exact !important; 
+            print-color-adjust: exact !important;
         }
 
-        /* Essential A4 Landscape Logic */
+        /* Page Dimensions for A4 Landscape */
+        @page { 
+            size: A4 landscape; 
+            margin: 0; 
+        }
+        
         .a4-section {
             width: 297mm;
             height: 210mm;
-            margin: 0 auto 40px auto;
+            margin: 2rem auto; /* Space between pages on screen */
             background-color: #EFE9E7;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             page-break-after: always;
-            break-after: page;
-            /* Force Backgrounds for Print */
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
+            page-break-inside: avoid;
         }
 
-        /* Hide elements during print if needed */
-        @media print {
-            body { 
-                background-color: transparent; 
-                padding: 0; 
-                margin: 0; 
+        /* Web-only animations */
+        @media screen {
+            .fade-in { animation: fadeIn 1.2s ease-out; }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
             }
-            .a4-section {
-                margin: 0 !important;
-                box-shadow: none !important;
+        }
+
+        /* Essential Print Overrides */
+        @media print {
+            body { background: none; margin: 0; padding: 0; }
+            .a4-section { 
+                margin: 0 !important; 
+                box-shadow: none !important; 
+                border: none !important;
+                /* Precise fit for print */
                 width: 297mm !important;
                 height: 210mm !important;
             }
+            .no-print { display: none; }
         }
 
-        @page {
-            size: A4 landscape;
-            margin: 0;
+        /* Utility for column balancing */
+        .content-container {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Prevent image flickering/loading issues in PDF */
-        img { backface-visibility: hidden; }
     </style>
 </head>
 <body class="font-body text-evergreen antialiased">
 
-    <header class="a4-section bg-evergreen text-parchment p-16">
-        <div class="fade-in mt-12 max-w-5xl z-10 flex-1">
-            <h1 class="font-display text-8xl lg:text-[10rem] font-semibold leading-none mb-8">People Centric<br>Leadership</h1>
-            <p class="font-display text-4xl italic text-muted-teal">Rooted in evidence. Built for connection.</p>
+    <nav class="no-print bg-white/80 backdrop-blur-md sticky top-0 z-50 p-4 flex justify-between items-center shadow-sm">
+        <span class="font-display font-bold text-evergreen">PCL Brand Book</span>
+        <button onclick="window.print()" class="bg-evergreen text-white px-4 py-2 rounded-full text-sm hover:bg-muted-teal transition-colors">
+            Download as PDF
+        </button>
+    </nav>
+
+    <header class="a4-section bg-evergreen text-parchment p-16 flex justify-between">
+        <div class="fade-in mt-16 z-10">
+            <h1 class="font-display text-8xl font-semibold leading-none mb-6">People Centric<br>Leadership</h1>
+            <p class="font-display text-3xl italic text-muted-teal">Rooted in evidence. Built for connection.</p>
         </div>
-        <div class="fade-in z-10 flex justify-between items-end border-t border-parchment/20 pt-8">
-            <div>
-                <p class="font-body text-xs tracking-[0.2em] uppercase opacity-60">Strategic Identity System</p>
-                <p class="font-body text-sm tracking-widest uppercase">Brand Guidelines</p>
-            </div>
-            <p class="font-body text-sm tracking-widest uppercase">Version 1.0 — 2026</p>
+        <div class="fade-in z-10 flex justify-between items-end border-t border-parchment/30 pt-8 mt-auto w-full">
+            <p class="text-xs tracking-widest uppercase">Brand Guidelines</p>
+            <p class="text-xs tracking-widest uppercase">2026 Edition</p>
         </div>
     </header>
 
-    <section class="a4-section p-16 justify-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-display text-6xl text-evergreen mb-10 border-b-2 border-golden-orange pb-4 inline-block">Introduction</h2>
-            <div class="space-y-6 text-xl leading-relaxed text-evergreen/90">
-                <p class="font-bold text-2xl text-evergreen">The conviction behind the mission.</p>
-                <p>We are living in a world that increasingly exploits our differences. Division is loud. Connection takes work. People Centric Leadership exists because understanding what people truly value, and how they perceive each other's values, is one of the most powerful tools we have for bringing people together.</p>
-                <p>Every decision — from colour to copy, from typography to tone — is rooted in five personality traits: <span class="text-evergreen font-bold">grounded, human, precise, quietly courageous, and purposefully warm.</span></p>
-                <div class="mt-12 p-8 bg-muted-teal/5 border-l-4 border-golden-orange">
-                    <p class="text-2xl italic font-display text-muted-teal">"These guidelines are the foundation of the brand. Use them with consistency and confidence to build the future of connection."</p>
+    <section class="a4-section p-20 justify-center">
+        <div class="content-container">
+            <h2 class="font-display text-5xl text-evergreen mb-8 border-b-2 border-golden-orange pb-2 inline-block">Introduction</h2>
+            <div class="grid grid-cols-2 gap-12 text-lg leading-relaxed">
+                <div class="space-y-6">
+                    <p class="font-bold">About This Document</p>
+                    <p>We are living in a world that increasingly exploits our differences. Division is loud. Connection takes work. People Centric Leadership exists because of a conviction that understanding what people truly value is the most powerful tool for unity.</p>
+                </div>
+                <div class="bg-muted-teal/10 p-8 rounded border-l-4 border-golden-orange">
+                    <p class="italic font-display text-2xl text-muted-teal">"These guidelines are a living foundation. As PCL grows, they will develop alongside it. Use them with confidence."</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="a4-section p-16 bg-evergreen text-parchment justify-center">
-        <div class="max-w-7xl mx-auto w-full">
-            <h2 class="font-display text-6xl mb-12 border-b border-parchment/20 pb-4">Brand Matrix</h2>
-            <table class="w-full text-left font-body">
-                <thead>
-                    <tr class="border-b-2 border-muted-teal text-xl font-display text-muted-teal">
-                        <th class="py-4 pr-6">Dimension</th>
-                        <th class="py-4 px-6">As Product</th>
-                        <th class="py-4 px-6">As Organisation</th>
-                        <th class="py-4 pl-6">Personality</th>
-                    </tr>
-                </thead>
-                <tbody class="text-lg divide-y divide-parchment/10">
-                    <tr>
-                        <td class="py-6 pr-6 font-semibold text-parchment">Core Identity</td>
-                        <td class="py-6 px-6 opacity-80">Evidence-first research and leadership insights.</td>
-                        <td class="py-6 px-6 opacity-80">Independent, self-funded, values-aligned.</td>
-                        <td class="py-6 pl-6 opacity-80">Grounded warmth and quiet courage.</td>
-                    </tr>
-                    <tr>
-                        <td class="py-6 pr-6 font-semibold text-parchment">Visual Style</td>
-                        <td class="py-6 px-6 opacity-80">Heritage stars, wind-flow motifs, and open circles.</td>
-                        <td class="py-6 px-6 opacity-80">Warm photography and editorial typography.</td>
-                        <td class="py-6 pl-6 opacity-80">Unposed authenticity with soft anchoring.</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="a4-section p-16 justify-center bg-white">
+        <div class="content-container w-full">
+            <h2 class="font-display text-5xl mb-12">Brand Identity</h2>
+            <div class="grid grid-cols-3 gap-8">
+                <div class="border-t-2 border-evergreen pt-4">
+                    <h3 class="font-display text-2xl mb-3 font-bold">Personality</h3>
+                    <p class="text-sm opacity-80">Grounded, human, precise, quietly courageous, and purposefully warm. The brand doesn't shout; it shows up fully and speaks with purpose.</p>
+                </div>
+                <div class="border-t-2 border-muted-teal pt-4">
+                    <h3 class="font-display text-2xl mb-3 font-bold">Product</h3>
+                    <p class="text-sm opacity-80">Freely accessible, evidence-first research reports that bridge the gap between abstract academic theory and commercial consultancy.</p>
+                </div>
+                <div class="border-t-2 border-golden-orange pt-4">
+                    <h3 class="font-display text-2xl mb-3 font-bold">Organisation</h3>
+                    <p class="text-sm opacity-80">Independent and self-funded. A megaphone for people’s voices—never the judge of their values. Built to unlock stronger teams.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="a4-section p-16 justify-center">
+        <div class="content-container w-full">
+            <div class="bg-evergreen p-12 text-center flex flex-col items-center rounded-sm mb-10">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Untitled%20(3).png" alt="PCL Logo" class="w-24 h-24 mb-4 grayscale brightness-200">
+                <h2 class="font-display text-5xl text-parchment tracking-wide">People Centric Leadership</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-16">
+                <div>
+                    <h4 class="font-display text-2xl mb-4 border-b border-evergreen/20 pb-2">Logo Usage</h4>
+                    <p class="text-sm leading-relaxed mb-4">Maintain an exclusion zone equal to the height of the 'P'. This ensures the brand mark has room to breathe and maintain its authority.</p>
+                    <div class="flex gap-2">
+                        <div class="h-12 w-24 bg-evergreen rounded flex items-center justify-center text-[10px] text-white">ON DARK</div>
+                        <div class="h-12 w-24 bg-parchment border border-evergreen/20 rounded flex items-center justify-center text-[10px]">ON LIGHT</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-display text-2xl mb-4 border-b border-evergreen/20 pb-2">Concepts</h4>
+                    <ul class="text-sm space-y-2 italic">
+                        <li>• The Compass Star: Excellence and achievement.</li>
+                        <li>• The Wind Lines: Kinetic, adaptable movement.</li>
+                        <li>• The Open Circle: Openness and radical welcome.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="a4-section">
         <div class="grid grid-cols-4 h-full">
-            <div class="bg-evergreen p-12 flex flex-col justify-end text-parchment">
-                <h3 class="font-display text-4xl mb-2">Evergreen</h3>
-                <p class="font-mono text-sm opacity-60 mb-8">#132A13</p>
-                <p class="text-sm leading-relaxed">The anchor. Grounds the brand with a sense of authority and deep history.</p>
+            <div class="bg-evergreen p-10 flex flex-col justify-end text-parchment">
+                <span class="text-xs uppercase tracking-widest mb-1 opacity-60">Primary</span>
+                <h3 class="font-display text-3xl">Evergreen</h3>
+                <p class="font-mono text-sm">#132A13</p>
             </div>
-            <div class="bg-parchment p-12 flex flex-col justify-end text-evergreen border-r border-evergreen/10">
-                <h3 class="font-display text-4xl mb-2">Parchment</h3>
-                <p class="font-mono text-sm opacity-60 mb-8">#EFE9E7</p>
-                <p class="text-sm leading-relaxed">The space. Provides the breathing room necessary for complex evidence to feel human.</p>
+            <div class="bg-parchment p-10 flex flex-col justify-end text-evergreen">
+                <span class="text-xs uppercase tracking-widest mb-1 opacity-60">Base</span>
+                <h3 class="font-display text-3xl">Parchment</h3>
+                <p class="font-mono text-sm">#EFE9E7</p>
             </div>
-            <div class="bg-muted-teal p-12 flex flex-col justify-end text-parchment">
-                <h3 class="font-display text-4xl mb-2">Muted Teal</h3>
-                <p class="font-mono text-sm opacity-60 mb-8">#6BA292</p>
-                <p class="text-sm leading-relaxed">The soul. Adds depth and curiosity to section dividers and hero headers.</p>
+            <div class="bg-muted-teal p-10 flex flex-col justify-end text-evergreen">
+                <span class="text-xs uppercase tracking-widest mb-1 opacity-60">Secondary</span>
+                <h3 class="font-display text-3xl">Muted Teal</h3>
+                <p class="font-mono text-sm">#6BA292</p>
             </div>
-            <div class="bg-golden-orange p-12 flex flex-col justify-end text-evergreen">
-                <h3 class="font-display text-4xl mb-2">Golden Orange</h3>
-                <p class="font-mono text-sm opacity-60 mb-8">#E59500</p>
-                <p class="text-sm leading-relaxed">The courage. Used sparingly for calls to action and key brand emphasis.</p>
+            <div class="bg-golden-orange p-10 flex flex-col justify-end text-evergreen">
+                <span class="text-xs uppercase tracking-widest mb-1 opacity-60">Highlight</span>
+                <h3 class="font-display text-3xl">Golden Orange</h3>
+                <p class="font-mono text-sm">#E59500</p>
             </div>
         </div>
     </section>
 
     <section class="a4-section p-16 justify-center">
-        <div class="max-w-7xl mx-auto w-full">
-            <h2 class="font-display text-6xl text-evergreen mb-8">Photography</h2>
-            <div class="grid grid-cols-2 gap-12 mb-12">
-                <p class="text-xl leading-relaxed">PCL photography should feel like a documentary filmmaker captured a genuine moment of connection. Avoid flat lighting; shadows add depth and honesty.</p>
-                <p class="text-xl leading-relaxed italic text-muted-teal">"See the whole person. Candid, raw, and unposed. Subjects are real people in real settings."</p>
-            </div>
-            <div class="grid grid-cols-3 gap-6 h-64">
-                <div class="bg-gray-300 overflow-hidden rounded-sm"><img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/nathan-dumlao-EwaV3HjwmUo-unsplash.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"></div>
-                <div class="bg-gray-300 overflow-hidden rounded-sm"><img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/casey-horner-OopzSWabsWE-unsplash.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"></div>
-                <div class="bg-gray-300 overflow-hidden rounded-sm"><img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_oviqmtoviqmtoviq.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="a4-section p-16 bg-evergreen text-parchment justify-center text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-display text-5xl mb-12 text-muted-teal italic">"Subtle references reward those who know the story."</h2>
-            <div class="grid grid-cols-2 gap-16 text-left">
-                <div class="p-8 border border-parchment/20 rounded-lg">
-                    <h3 class="font-display text-3xl text-golden-orange mb-4">The Three Stars</h3>
-                    <p class="text-sm leading-relaxed opacity-80">A recurring motif denoting excellence and achievement. They appear in the brand mark and serve as a compositional principle for layouts.</p>
+        <div class="content-container space-y-12">
+            <div class="flex items-center gap-16 border-b border-evergreen/10 pb-10">
+                <h1 class="font-display text-9xl text-evergreen">Aa</h1>
+                <div>
+                    <h3 class="font-display text-3xl font-bold">Cormorant Garamond</h3>
+                    <p class="max-w-md text-sm opacity-80 mt-2">Display typeface used for headlines. Expresses scholarly precision with a human touch.</p>
                 </div>
-                <div class="p-8 border border-parchment/20 rounded-lg">
-                    <h3 class="font-display text-3xl text-golden-orange mb-4">The Stag</h3>
-                    <p class="text-sm leading-relaxed opacity-80">Denoting courage and resilience. This is expressed through the use of Golden Orange, reserved for moments of real weight and decision.</p>
+            </div>
+            <div class="flex items-center gap-16">
+                <h1 class="font-body text-8xl text-evergreen">Aa</h1>
+                <div>
+                    <h3 class="font-body text-3xl font-bold">Lora</h3>
+                    <p class="max-w-md text-sm opacity-80 mt-2">Body typeface. A contemporary serif with roots in calligraphy. Sturdier and more legible for long-form content.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="a4-section bg-parchment flex flex-col justify-center items-center">
-        <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Untitled%20(3).png" alt="PCL Logo" class="w-24 h-24 object-contain mb-8">
-        <p class="font-body text-sm tracking-widest uppercase text-evergreen opacity-40 mb-2">People Centric Leadership</p>
-        <p class="font-display text-4xl italic text-muted-teal">Evidence that listens. Leadership that connects.</p>
+    <footer class="a4-section bg-evergreen text-parchment items-center justify-center">
+        <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Untitled%20(3).png" alt="PCL Logo" class="w-16 h-16 mb-6 opacity-40 grayscale brightness-200">
+        <p class="font-body text-xs tracking-[0.3em] uppercase opacity-50 mb-4">People Centric Leadership</p>
+        <p class="font-display italic text-2xl text-muted-teal">Evidence. Connection. Impact.</p>
     </footer>
 
 </body>
