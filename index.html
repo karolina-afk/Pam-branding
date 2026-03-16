@@ -64,7 +64,7 @@
         }
 
         /* --- LAYOUT UTILITIES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 4rem; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
         .flex-center { display: flex; align-items: center; justify-content: center; text-align: center; }
@@ -94,24 +94,24 @@
         
         /* Cover Page */
         .cover-page { display: flex; flex-direction: column; justify-content: space-between; padding: 4rem; z-index: 10; }
-        .cover-page h1 { font-size: 8rem; margin-bottom: 1.5rem; line-height: 0.9; }
-        .cover-page h2 { font-size: 2.5rem; font-style: italic; color: var(--muted-teal); }
+        .cover-page h1 { font-size: 7.5rem; margin-bottom: 1.5rem; line-height: 0.9; }
+        .cover-page h2 { font-size: 2.25rem; font-style: italic; color: var(--muted-teal); }
         .cover-footer { display: flex; justify-content: space-between; border-top: 1px solid rgba(239, 233, 231, 0.3); padding-top: 2rem; }
 
         /* General Content */
-        .section-title { font-size: 3.5rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--golden-orange); display: inline-block; }
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--golden-orange); display: inline-block; }
         .section-title.full-width { display: block; border-bottom: 1px solid rgba(19, 42, 19, 0.2); }
-        .intro-text { font-size: 1.25rem; color: rgba(19, 42, 19, 0.9); }
-        .intro-text p { margin-bottom: 1.5rem; }
-        .quote { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--muted-teal); border-left: 4px solid var(--golden-orange); padding-left: 1.5rem; margin-top: 2rem; }
+        .intro-text { font-size: 1.15rem; color: rgba(19, 42, 19, 0.9); }
+        .intro-text p { margin-bottom: 1.25rem; }
+        .quote { font-family: var(--font-display); font-size: 1.4rem; font-style: italic; color: var(--muted-teal); border-left: 4px solid var(--golden-orange); padding-left: 1.5rem; margin-top: 2rem; }
         
         /* Positioning Hero */
-        .hero-statement { font-size: 3.5rem; line-height: 1.2; }
+        .hero-statement { font-size: 3.25rem; line-height: 1.2; }
 
         /* Tables */
         .brand-table { width: 100%; border-collapse: collapse; text-align: left; }
-        .brand-table th { font-family: var(--font-display); font-size: 1.25rem; border-bottom: 2px solid var(--muted-teal); padding: 1rem; }
-        .brand-table td { padding: 1rem; border-bottom: 1px solid rgba(239, 233, 231, 0.1); color: rgba(239, 233, 231, 0.8); }
+        .brand-table th { font-family: var(--font-display); font-size: 1.25rem; border-bottom: 2px solid var(--muted-teal); padding: 0.75rem 1rem; }
+        .brand-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(239, 233, 231, 0.1); color: rgba(239, 233, 231, 0.8); font-size: 0.95rem; }
         .brand-table td:first-child { font-weight: 600; color: var(--parchment); }
         
         /* Sensory Tables - Alternate borders */
@@ -127,46 +127,46 @@
         .color-card.parchment { border-right: 1px solid rgba(19, 42, 19, 0.1); }
 
         /* Typography Showcase */
-        .type-showcase h1 { font-size: 7rem; line-height: 1; margin-bottom: 1rem; }
+        .type-showcase h1 { font-size: 5.5rem; line-height: 1; margin-bottom: 0.5rem; }
         .type-showcase.body h1 { font-family: var(--font-body); }
-        .type-showcase p { word-break: break-all; font-size: 1.25rem; opacity: 0.7; letter-spacing: 0.1em; }
+        .type-showcase p { word-break: break-all; font-size: 1.05rem; opacity: 0.7; letter-spacing: 0.1em; line-height: 1.4;}
         
         /* Divider Screens */
         .divider-screen { font-size: 6rem; }
         
         /* Posters */
-        .poster-title { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1rem; }
+        .poster-title { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
         .poster-logo { position: absolute; bottom: 3rem; left: 4rem; width: 4rem; opacity: 0.8; }
 
         /* Photo Grid */
         .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
-        .photo-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; transition: transform 0.3s; }
+        .photo-grid img { width: 100%; height: 160px; object-fit: cover; border-radius: 4px; transition: transform 0.3s; }
         .photo-grid img:hover { transform: scale(1.02); }
 
         /* Icons & Metaphors */
-        .icon-box { background: rgba(107, 162, 146, 0.1); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--muted-teal); margin-bottom: 1.5rem;}
+        .icon-box { background: rgba(107, 162, 146, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--muted-teal); margin-bottom: 1rem;}
         .icon-box.orange { background: rgba(229, 149, 0, 0.1); border-left-color: var(--golden-orange); }
-        .heritage-card { background: var(--evergreen); color: var(--parchment); padding: 1.5rem; border-radius: 8px; display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+        .heritage-card { background: var(--evergreen); color: var(--parchment); padding: 1.25rem; border-radius: 8px; display: flex; gap: 1.5rem; align-items: center; margin-bottom: 1.25rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
         .heritage-card.orange { background: var(--golden-orange); color: var(--evergreen); }
 
         /* Mockups - Website */
-        .mockup-container { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
-        .browser-mock { width: 320px; height: 520px; background: var(--evergreen); border-radius: 8px 8px 0 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); display: flex; flex-direction: column; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);}
+        .mockup-container { display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; }
+        .browser-mock { width: 320px; height: 460px; background: var(--evergreen); border-radius: 8px 8px 0 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); display: flex; flex-direction: column; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);}
         .browser-mock.alt-clip { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%); }
         .browser-bar { height: 1rem; background: #e5e7eb; display: flex; align-items: center; padding: 0 0.75rem; gap: 0.25rem; }
         .browser-dot { width: 6px; height: 6px; background: white; border-radius: 50%; }
-        .mock-hero { position: relative; height: 200px; padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+        .mock-hero { position: relative; height: 160px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
         .mock-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.4; filter: grayscale(100%); mix-blend-mode: overlay; }
-        .mock-content { padding: 1.5rem; background: var(--muted-teal); }
-        .mock-footer { padding: 1.5rem; flex: 1; display: flex; gap: 1rem; background: var(--evergreen); }
+        .mock-content { padding: 1.25rem; background: var(--muted-teal); }
+        .mock-footer { padding: 1.25rem; flex: 1; display: flex; gap: 1rem; background: var(--evergreen); }
         
         /* Mockups - Presentations */
-        .presentation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; background: #e5e7eb; padding: 2rem; border-radius: 12px; }
-        .slide { aspect-ratio: 16/9; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+        .presentation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; background: #e5e7eb; padding: 2rem; border-radius: 12px; margin-top: 1rem; }
+        .slide { aspect-ratio: 16/9; padding: 1rem; position: relative; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .slide-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(100%); mix-blend-mode: overlay; }
 
         /* Mockups - Cards */
-        .card-grid { display: flex; justify-content: center; gap: 3rem; background: #e5e7eb; padding: 3rem; border-radius: 12px; }
+        .card-grid { display: flex; justify-content: center; gap: 3rem; background: #e5e7eb; padding: 3rem; border-radius: 12px; margin-top: 1rem; }
         .b-card { width: 340px; height: 200px; padding: 2rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
 
     </style>
@@ -215,15 +215,15 @@
             <h2 class="section-title full-width fade-in">PCL Brand Identity</h2>
             <div class="grid-3 fade-in">
                 <div style="border-top: 2px solid var(--evergreen); padding-top: 1.5rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Brand Personality</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand Personality</h3>
                     <p class="intro-text" style="font-size: 0.9rem;">PCL carries the poise of a seasoned leader and the soul of a storyteller. Grounded, soulful, precise, quietly courageous, and purposefully warm — these five traits shape every interaction. The brand doesn't shout, oversell, or perform. It shows up fully, speaks with purpose, and always leaves room for others. Like wind, it adapts and flows through resistance with calm, grounded articulation rather than force.</p>
                 </div>
                 <div style="border-top: 2px solid var(--muted-teal); padding-top: 1.5rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Brand as a Product</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as a Product</h3>
                     <p class="intro-text" style="font-size: 0.9rem;">PCL delivers freely accessible, evidence-first research reports and leadership insights that bridge the gap between abstract academic research and commercial consultancy. Its unique lens explores not just what people value, but how similar or different they believe others' values to be. Extended offerings include workshops, advisory sessions, sector-specific materials, and youth outreach tools.</p>
                 </div>
                 <div style="border-top: 2px solid var(--golden-orange); padding-top: 1.5rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Brand as an Organisation</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as an Organisation</h3>
                     <p class="intro-text" style="font-size: 0.9rem;">PCL is independent and self-funded, partnering only with organisations whose values align with its own. It operates across sectors and generations, proactively seeking new audiences rather than waiting for them to arrive. Founded on the conviction that research insights should be freely available, it serves as a megaphone for people's voices — never the judge of their values.</p>
                 </div>
             </div>
@@ -351,18 +351,18 @@
     </section>
 
     <section class="a4-section">
-        <div class="container max-w-7xl" style="gap: 4rem;">
-            <div class="grid-2 fade-in" style="align-items: center; border-bottom: 1px solid rgba(19,42,19,0.2); padding-bottom: 3rem;">
+        <div class="container max-w-7xl" style="gap: 3rem;">
+            <div class="grid-2 fade-in" style="align-items: center; border-bottom: 1px solid rgba(19,42,19,0.2); padding-bottom: 2.5rem;">
                 <div class="type-showcase">
                     <p class="label text-muted-teal" style="margin-bottom: 1rem;">Primary / Display Font</p>
                     <h1>AaBb</h1>
-                    <p style="font-family: var(--font-display); font-size: 2rem; color: var(--evergreen); opacity: 1; margin-bottom: 1rem;">Cormorant Garamond</p>
+                    <p style="font-family: var(--font-display); font-size: 1.75rem; color: var(--evergreen); opacity: 1; margin-bottom: 1rem;">Cormorant Garamond</p>
                     <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
                     <p>abcdefghijklmnopqrstuvwxyz</p>
                     <p>0123456789</p>
                 </div>
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Why Cormorant Garamond?</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Why Cormorant Garamond?</h3>
                     <p class="intro-text" style="font-size: 1rem;">Tall, elegant proportions and fine detail. Chosen to express the Sage archetype through letterforms—scholarly precision with a distinctly human touch. Used exclusively for headlines, hero statements, and primary navigation.</p>
                 </div>
             </div>
@@ -371,13 +371,13 @@
                 <div class="type-showcase body">
                     <p class="label text-golden-orange" style="margin-bottom: 1rem;">Secondary / Body Font</p>
                     <h1>AaBb</h1>
-                    <p style="font-family: var(--font-body); font-size: 2rem; color: var(--evergreen); opacity: 1; margin-bottom: 1rem;">Lora <span style="font-size: 1rem; opacity: 0.5;">(Regular/Medium)</span></p>
+                    <p style="font-family: var(--font-body); font-size: 1.75rem; color: var(--evergreen); opacity: 1; margin-bottom: 1rem;">Lora <span style="font-size: 1rem; opacity: 0.5;">(Regular/Medium)</span></p>
                     <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
                     <p>abcdefghijklmnopqrstuvwxyz</p>
                     <p>0123456789</p>
                 </div>
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Why Lora?</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Why Lora?</h3>
                     <p class="intro-text" style="font-size: 1rem;">A contemporary serif with roots in calligraphy. Grounds the elegant Cormorant with a slightly sturdier, more modern body. Its brushed curves add subtle warmth to extended reading, balancing scholarship with soul. Used for all body copy and subtext.</p>
                 </div>
             </div>
@@ -400,11 +400,11 @@
         <div class="container max-w-7xl">
             <div class="grid-2 fade-in">
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">See the Whole Person</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">See the Whole Person</h3>
                     <p class="intro-text" style="font-size: 1rem;">Candid and raw, with warmth and intention. PCL photography should feel like a documentary filmmaker captured a genuine moment of connection. Subjects are real people in real settings—never actors in staged boardrooms.</p>
                 </div>
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Lighting & Composition</h3>
+                    <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem;">Lighting & Composition</h3>
                     <p class="intro-text" style="font-size: 1rem;">Natural and directional—golden-hour warmth, soft window light, or gentle overcast. Avoid flat, even lighting. Shadows add depth and honesty. Balanced and symmetrical where possible, but never rigid. Leave breathing space.</p>
                 </div>
             </div>
@@ -433,23 +433,23 @@
                     <div class="mock-hero">
                         <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_oviqmtoviqmtoviq.png" class="mock-bg" alt="BG">
                         <div style="position: relative; z-index: 10;">
-                            <h3 style="color: var(--golden-orange); font-size: 1.25rem;">Leadership Insights</h3>
-                            <h2 style="color: var(--parchment); font-size: 2rem; line-height: 1;">Our approach<br>to connection</h2>
+                            <h3 style="color: var(--golden-orange); font-size: 1.1rem; margin-bottom: 0.25rem;">Leadership Insights</h3>
+                            <h2 style="color: var(--parchment); font-size: 1.75rem; line-height: 1.1;">Our approach<br>to connection</h2>
                         </div>
                     </div>
                     <div class="mock-content">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_ghaohlghaohlghao.png" alt="PCL Logo" style="width: 20px; mix-blend-mode: multiply;">
-                                <span style="font-family: var(--font-display); font-weight: bold; font-size: 1.1rem;">PCL</span>
+                                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_ghaohlghaohlghao.png" alt="PCL Logo" style="width: 16px; mix-blend-mode: multiply;">
+                                <span style="font-family: var(--font-display); font-weight: bold; font-size: 1rem;">PCL</span>
                             </div>
-                            <div style="font-size: 0.4rem; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; display: flex; gap: 0.5rem;">
+                            <div style="font-size: 0.35rem; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; display: flex; gap: 0.5rem;">
                                 <span>About</span> <span>Services</span> <span>Contact</span>
                             </div>
                         </div>
                         <div style="display: flex; gap: 1rem;">
-                            <div style="width: 33%; font-size: 0.5rem; font-weight: bold;">Evidence that listens.<br>Leadership that connects.</div>
-                            <div style="width: 66%; font-size: 0.45rem; opacity: 0.9; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                            <div style="width: 33%; font-size: 0.45rem; font-weight: bold; line-height: 1.4;">Evidence that listens.<br>Leadership that connects.</div>
+                            <div style="width: 66%; font-size: 0.4rem; opacity: 0.9; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; line-height: 1.4;">
                                 <p>People Centric Leadership exists because values are often treated as a tick-box.</p>
                                 <p>We listen to what people truly value, and equip leaders to connect.</p>
                             </div>
@@ -458,8 +458,8 @@
                     <div class="mock-footer">
                         <div style="width: 33%;"><h3 style="color: var(--golden-orange); font-family: var(--font-display); font-size: 0.8rem;">Our research</h3></div>
                         <div style="width: 66%; display: flex; flex-direction: column; gap: 0.5rem;">
-                            <div style="height: 30px; background: rgba(239,233,231,0.1); border-left: 2px solid var(--muted-teal);"></div>
-                            <div style="height: 40px; background: rgba(239,233,231,0.05); border-radius: 2px; padding: 4px; display: flex; align-items: flex-end; gap: 2px;">
+                            <div style="height: 20px; background: rgba(239,233,231,0.1); border-left: 2px solid var(--muted-teal);"></div>
+                            <div style="height: 30px; background: rgba(239,233,231,0.05); border-radius: 2px; padding: 4px; display: flex; align-items: flex-end; gap: 2px;">
                                 <div style="flex: 1; height: 40%; background: var(--muted-teal);"></div>
                                 <div style="flex: 1; height: 70%; background: var(--muted-teal);"></div>
                                 <div style="flex: 1; height: 90%; background: var(--golden-orange);"></div>
@@ -475,23 +475,23 @@
                     <div class="mock-hero">
                         <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/nathan-dumlao-EwaV3HjwmUo-unsplash.jpg" class="mock-bg" alt="BG">
                         <div style="position: relative; z-index: 10;">
-                            <h3 style="color: var(--golden-orange); font-size: 1.25rem;">Leadership Insights</h3>
-                            <h2 style="color: var(--parchment); font-size: 2rem; line-height: 1;">Our approach<br>to connection</h2>
+                            <h3 style="color: var(--golden-orange); font-size: 1.1rem; margin-bottom: 0.25rem;">Leadership Insights</h3>
+                            <h2 style="color: var(--parchment); font-size: 1.75rem; line-height: 1.1;">Our approach<br>to connection</h2>
                         </div>
                     </div>
                     <div class="mock-content">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_ghaohlghaohlghao.png" alt="PCL Logo" style="width: 20px; mix-blend-mode: multiply;">
-                                <span style="font-family: var(--font-display); font-weight: bold; font-size: 1.1rem;">PCL</span>
+                                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_ghaohlghaohlghao.png" alt="PCL Logo" style="width: 16px; mix-blend-mode: multiply;">
+                                <span style="font-family: var(--font-display); font-weight: bold; font-size: 1rem;">PCL</span>
                             </div>
-                            <div style="font-size: 0.4rem; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; display: flex; gap: 0.5rem;">
+                            <div style="font-size: 0.35rem; text-transform: uppercase; font-weight: bold; letter-spacing: 0.1em; display: flex; gap: 0.5rem;">
                                 <span>About</span> <span>Services</span> <span>Contact</span>
                             </div>
                         </div>
                         <div style="display: flex; gap: 1rem;">
-                            <div style="width: 33%; font-size: 0.5rem; font-weight: bold;">Evidence that listens.<br>Leadership that connects.</div>
-                            <div style="width: 66%; font-size: 0.45rem; opacity: 0.9; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                            <div style="width: 33%; font-size: 0.45rem; font-weight: bold; line-height: 1.4;">Evidence that listens.<br>Leadership that connects.</div>
+                            <div style="width: 66%; font-size: 0.4rem; opacity: 0.9; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; line-height: 1.4;">
                                 <p>People Centric Leadership exists because values are often treated as a tick-box.</p>
                                 <p>We listen to what people truly value, and equip leaders to connect.</p>
                             </div>
@@ -500,8 +500,8 @@
                     <div class="mock-footer">
                         <div style="width: 33%;"><h3 style="color: var(--golden-orange); font-family: var(--font-display); font-size: 0.8rem;">Our research</h3></div>
                         <div style="width: 66%; display: flex; flex-direction: column; gap: 0.5rem;">
-                            <div style="height: 30px; background: rgba(239,233,231,0.1); border-left: 2px solid var(--muted-teal);"></div>
-                            <div style="height: 40px; background: rgba(239,233,231,0.05); border-radius: 2px; padding: 4px; display: flex; align-items: flex-end; gap: 2px;">
+                            <div style="height: 20px; background: rgba(239,233,231,0.1); border-left: 2px solid var(--muted-teal);"></div>
+                            <div style="height: 30px; background: rgba(239,233,231,0.05); border-radius: 2px; padding: 4px; display: flex; align-items: flex-end; gap: 2px;">
                                 <div style="flex: 1; height: 30%; background: var(--muted-teal);"></div>
                                 <div style="flex: 1; height: 60%; background: var(--muted-teal);"></div>
                                 <div style="flex: 1; height: 80%; background: var(--golden-orange);"></div>
@@ -516,26 +516,26 @@
 
     <section class="a4-section">
         <div class="container max-w-7xl">
-            <h2 class="section-title fade-in" style="margin-bottom: 1rem;">Presentation Mockups</h2>
-            <p class="intro-text fade-in" style="margin-bottom: 2rem;">Example layouts for keynote presentations and research reports, balancing authoritative typography with the core brand palette.</p>
+            <h2 class="section-title fade-in">Presentation Mockups</h2>
+            <p class="intro-text fade-in" style="margin-bottom: 1.5rem;">Example layouts for keynote presentations and research reports, balancing authoritative typography with the core brand palette.</p>
             
             <div class="presentation-grid fade-in">
                 <div class="slide bg-evergreen text-parchment" style="justify-content: center;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">People Centric<br>Leadership.</h3>
-                    <h1 style="font-size: 1rem; color: var(--muted-teal); font-style: italic;">Evidence that listens.</h1>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem; line-height: 1.1;">People Centric<br>Leadership.</h3>
+                    <h1 style="font-size: 0.85rem; color: var(--muted-teal); font-style: italic;">Evidence that listens.</h1>
                 </div>
                 
                 <div class="slide bg-evergreen text-parchment" style="justify-content: center;">
                     <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/casey-horner-OopzSWabsWE-unsplash.jpg" class="slide-bg" alt="BG">
-                    <h2 style="font-size: 1.5rem; position: relative; z-index: 10;">Introduction<br>& overview</h2>
+                    <h2 style="font-size: 1.25rem; line-height: 1.1; position: relative; z-index: 10;">Introduction<br>& overview</h2>
                 </div>
 
                 <div class="slide bg-parchment text-evergreen">
-                    <div style="border-bottom: 1px solid rgba(19,42,19,0.3); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
-                        <h3 style="font-size: 1rem;">Lorem ipsum dolor sit amet</h3>
+                    <div style="border-bottom: 1px solid rgba(19,42,19,0.3); padding-bottom: 0.25rem; margin-bottom: 0.5rem;">
+                        <h3 style="font-size: 0.85rem;">Lorem ipsum dolor sit amet</h3>
                     </div>
-                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; font-size: 0.5rem;">
-                        <div style="color: var(--golden-orange); font-family: var(--font-display); font-style: italic; font-size: 0.7rem;">Olor sed voluptate volendist laboribus</div>
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 0.75rem; font-size: 0.45rem; line-height: 1.4;">
+                        <div style="color: var(--golden-orange); font-family: var(--font-display); font-style: italic; font-size: 0.6rem;">Olor sed voluptate volendist laboribus</div>
                         <div style="opacity: 0.8;">Voluptate volendist laboribus voloreriat. Suntis et is nihillo corero quat est, nis is intiumus eum volupta tiisquam. Acillor aturibus is ut venia nis mos magnis quature.</div>
                     </div>
                 </div>
