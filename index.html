@@ -1,187 +1,328 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCL Brand Guidelines | Digital & Print</title>
+    <title>PCL Brand Guidelines</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        evergreen: '#132A13',
-                        parchment: '#EFE9E7',
-                        'muted-teal': '#6BA292',
-                        'golden-orange': '#E59500'
-                    },
-                    fontFamily: {
-                        display: ['"Cormorant Garamond"', 'serif'],
-                        body: ['"Lora"', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        /* Screen view styling */
-        body { 
-            background-color: #d1d5db; 
-            margin: 0; 
-            padding: 20px 0;
+        /* --- CSS VARIABLES --- */
+        :root {
+            --evergreen: #132A13;
+            --parchment: #EFE9E7;
+            --muted-teal: #6BA292;
+            --golden-orange: #E59500;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Lora', serif;
         }
 
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background-color: #d1d5db; 
+            font-family: var(--font-body);
+            color: var(--evergreen);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; }
+        em { font-style: italic; }
+        strong { font-weight: bold; }
+
+        /* --- A4 PAGE SETUP --- */
         .a4-section {
-            width: 297mm;
-            height: 210mm;
-            margin: 0 auto 30px auto;
-            background-color: #EFE9E7;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 297mm;
+            min-height: 210mm; /* Dynamic height prevents cropping */
+            margin: 2rem auto;
+            background-color: var(--parchment);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            /* Critical for PDF generation */
+            justify-content: center;
             page-break-after: always;
-            break-after: page;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
         }
 
-        /* Print-specific overrides */
         @media print {
-            body { 
-                background-color: transparent; 
-                padding: 0; 
-                margin: 0; 
-            }
-            .a4-section {
-                margin: 0 !important;
-                box-shadow: none !important;
-                width: 297mm !important;
-                height: 210mm !important;
-                border: none !important;
-            }
-            .no-print { display: none; }
+            body { background-color: white; margin: 0; padding: 0; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            .a4-section { margin: 0 !important; box-shadow: none !important; width: 297mm !important; min-height: 210mm !important; }
         }
 
-        @page {
-            size: A4 landscape;
-            margin: 0;
-        }
-
-        /* Smooth fade for digital viewing */
-        .fade-in { animation: fadeIn 1.2s ease-out; }
+        /* --- ANIMATIONS --- */
+        .fade-in { animation: fadeIn ease 1.2s forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 4rem; width: 100%; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .flex-col-between { display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 210mm; padding: 4rem; }
+        .text-center { text-align: center; }
+        
+        .label { font-family: var(--font-body); font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; font-weight: bold; }
+        .bg-evergreen { background-color: var(--evergreen); color: var(--parchment); }
+        .bg-muted-teal { background-color: var(--muted-teal); color: var(--parchment); }
+        .bg-golden-orange { background-color: var(--golden-orange); color: var(--evergreen); }
+        .text-golden-orange { color: var(--golden-orange); }
+        .text-muted-teal { color: var(--muted-teal); }
+
+        /* --- TYPOGRAPHY --- */
+        .section-title { font-size: 3.5rem; margin-bottom: 2rem; border-bottom: 2px solid var(--golden-orange); padding-bottom: 0.5rem; display: inline-block; }
+        .hero-statement { font-size: 3.5rem; line-height: 1.2; }
+        .intro-text { font-size: 1.15rem; margin-bottom: 1.25rem; color: rgba(19, 42, 19, 0.9); }
+        .quote { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--muted-teal); border-left: 4px solid var(--golden-orange); padding-left: 1.5rem; margin-top: 2.5rem; }
+
+        /* --- TABLES --- */
+        .brand-table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem; }
+        .brand-table th { font-family: var(--font-display); font-size: 1.25rem; border-bottom: 2px solid var(--muted-teal); padding: 1rem; }
+        .brand-table td { padding: 1rem; border-bottom: 1px solid rgba(239, 233, 231, 0.1); font-size: 1rem; vertical-align: top; }
+        .brand-table td:first-child { font-weight: 600; color: var(--parchment); width: 20%; }
+
+        /* --- COLORS --- */
+        .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); min-height: 210mm; }
+        .color-card { padding: 3rem 2rem; display: flex; flex-direction: column; justify-content: flex-end; transition: padding 0.3s; position: relative; }
+        .color-card:hover { padding-bottom: 4rem; }
+        .color-card h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .color-card .desc { opacity: 0; font-size: 0.9rem; transition: opacity 0.4s; margin-top: 1rem; line-height: 1.4; height: 80px; }
+        .color-card:hover .desc { opacity: 1; }
+
+        /* --- TYPOGRAPHY PAGE --- */
+        .type-showcase h1 { font-size: 6rem; line-height: 1; margin-bottom: 1rem; }
+        .type-showcase.body h1 { font-family: var(--font-body); }
+        .alphabet-box { font-size: 1.1rem; opacity: 0.7; letter-spacing: 0.05em; word-break: break-all; line-height: 1.4; }
+
+        /* --- VISUALS & MOCKUPS --- */
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+        .photo-grid img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; }
+        
+        .mockup-container { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
+        .browser-mock { width: 320px; background: var(--evergreen); border-radius: 8px 8px 0 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3); overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); }
+        .browser-bar { height: 1.2rem; background: #e5e7eb; display: flex; align-items: center; padding: 0 0.75rem; gap: 0.25rem; }
+        .browser-dot { width: 6px; height: 6px; background: white; border-radius: 50%; }
+
+        .presentation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; background: #e5e7eb; padding: 2rem; border-radius: 12px; }
+        .slide { aspect-ratio: 16/9; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 1.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+        .slide-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1); mix-blend-mode: overlay; }
+
+        .card-grid { display: flex; justify-content: center; gap: 3rem; background: #e5e7eb; padding: 4rem; border-radius: 12px; }
+        .b-card { width: 350px; aspect-ratio: 1.7/1; padding: 2.5rem; box-shadow: 0 15px 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
     </style>
 </head>
-<body class="font-body text-evergreen antialiased">
+<body>
 
-    <header class="a4-section bg-evergreen text-parchment p-16">
-        <div class="fade-in mt-16 max-w-5xl z-10 flex-1">
-            <h1 class="font-display text-8xl lg:text-9xl font-semibold leading-none mb-6">People Centric<br>Leadership</h1>
-            <p class="font-display text-4xl italic text-muted-teal">Evidence that listens. Leadership that connects.</p>
-        </div>
-        <div class="fade-in z-10 flex justify-between items-end border-t border-parchment/30 pt-8 mt-auto">
-            <p class="font-body text-sm tracking-widest uppercase">Brand Guidelines</p>
-            <p class="font-body text-sm tracking-widest uppercase">Confidential Version 1.0</p>
+    <header class="a4-section bg-evergreen">
+        <div class="flex-col-between fade-in">
+            <div style="margin-top: 4rem;">
+                <h1 style="font-size: 8rem; line-height: 0.9;">People Centric<br>Leadership</h1>
+                <p style="font-size: 2.5rem; font-style: italic; color: var(--muted-teal); font-family: var(--font-display);">Rooted in evidence. Built for connection.</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(239,233,231,0.3); padding-top: 2rem;">
+                <p class="label">Brand Guidelines</p>
+                <p class="label">Version 1.0</p>
+            </div>
         </div>
     </header>
 
-    <section class="a4-section p-16 justify-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-display text-6xl text-evergreen mb-10 border-b-2 border-golden-orange pb-4 inline-block">Introduction</h2>
-            <div class="space-y-6 text-xl leading-relaxed text-evergreen/90">
-                <p class="font-bold">About This Document</p>
-                <p>People Centric Leadership (PCL) exists because too many organisations treat values as a tick-box exercise, too many leaders operate without credible evidence, and too many voices go unheard.</p>
-                <p>These guidelines capture our strategic identity. Every decision—from colour to copy, from typography to tone—is rooted in five personality traits that define this brand: grounded, soulful, precise, quietly courageous, and purposefully warm.</p>
-                <p class="text-2xl italic font-display text-muted-teal mt-8 border-l-4 border-golden-orange pl-6">"Use these guidelines as a compass, not a cage."</p>
+    <section class="a4-section">
+        <div class="container" style="max-width: 900px;">
+            <h2 class="section-title fade-in">Introduction</h2>
+            <div class="fade-in">
+                <p class="intro-text"><strong>About This Document</strong></p>
+                <p class="intro-text">We are living in a world that increasingly exploits our differences. Division is loud. Connection takes work. People Centric Leadership exists because of a conviction — built over decades of leadership experience — that understanding what people truly value, and how they perceive each other's values, is one of the most powerful tools we have for bringing people together.</p>
+                <p class="intro-text">These guidelines capture the identity built to carry that mission into the world. Every decision — from colour to copy, from typography to tone — is rooted in five personality traits that define this brand: grounded, human, precise, quietly courageous, and purposefully warm.</p>
+                <div class="quote">"These guidelines are a living document. As PCL grows and its audience widens, they will develop alongside it. For now, they are the foundation of the brand."</div>
             </div>
         </div>
     </section>
 
-    <section class="a4-section p-16 bg-muted-teal text-parchment items-center justify-center text-center">
-        <div class="max-w-5xl z-10">
-            <p class="font-body text-sm tracking-widest uppercase mb-10 text-evergreen font-bold">Positioning</p>
-            <h2 class="font-display text-5xl lg:text-6xl leading-tight">
-                We listen to what people truly value, share what they tell us without judgement, and equip leaders to connect with their people through <span class="text-evergreen italic">credible evidence</span> — openly, for <span class="text-golden-orange">good.</span>
+    <section class="a4-section bg-muted-teal text-center">
+        <div class="container fade-in">
+            <p class="label" style="color: var(--evergreen);">Positioning</p>
+            <h2 class="hero-statement">
+                We listen to what people truly value,<br>
+                observe what they tell us without<br>
+                judgement, and equip people to<br>
+                connect with each other through<br>
+                <span class="text-golden-orange" style="font-style: italic; font-weight: bold;">credible evidence.</span>
             </h2>
         </div>
     </section>
 
-    <section class="a4-section p-16 justify-center">
-        <div class="max-w-7xl mx-auto w-full">
-            <h2 class="font-display text-6xl text-evergreen mb-10 border-b border-evergreen/20 pb-4">PCL Brand Identity</h2>
-            <div class="grid grid-cols-3 gap-12">
-                <div class="border-t-2 border-evergreen pt-6">
-                    <h3 class="font-display text-3xl mb-4 font-semibold">Brand Personality</h3>
-                    <p class="text-sm leading-relaxed">Grounded, soulful, precise, quietly courageous, and purposefully warm. The brand doesn't shout; it speaks with purpose.</p>
+    <section class="a4-section">
+        <div class="container">
+            <h2 class="section-title full-width fade-in">PCL Brand Identity</h2>
+            <div class="grid-3 fade-in" style="margin-top: 2rem;">
+                <div style="border-top: 2px solid var(--evergreen); padding-top: 1.5rem;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand Personality</h3>
+                    <p class="intro-text" style="font-size: 0.95rem;">Grounded, human, precise, quietly courageous, and purposefully warm. The brand doesn't shout; it shows up fully, speaks with purpose, and always leaves room for others. Like wind, it adapts and flows through resistance.</p>
                 </div>
-                <div class="border-t-2 border-muted-teal pt-6">
-                    <h3 class="font-display text-3xl mb-4 font-semibold">Brand as a Product</h3>
-                    <p class="text-sm leading-relaxed">Evidence-first research reports and insights that bridge the gap between academic research and commercial consultancy.</p>
+                <div style="border-top: 2px solid var(--muted-teal); padding-top: 1.5rem;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as a Product</h3>
+                    <p class="intro-text" style="font-size: 0.95rem;">Freely accessible research reports and leadership insights. PCL bridges the gap between academic research and commercial consultancy, making rigorous evidence feel accessible and human.</p>
                 </div>
-                <div class="border-t-2 border-golden-orange pt-6">
-                    <h3 class="font-display text-3xl mb-4 font-semibold">Brand as an Organisation</h3>
-                    <p class="text-sm leading-relaxed">Independent and self-funded, partnering only with organisations whose values align with its own.</p>
+                <div style="border-top: 2px solid var(--golden-orange); padding-top: 1.5rem;">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Brand as an Organisation</h3>
+                    <p class="intro-text" style="font-size: 0.95rem;">Independent and self-funded. PCL exists to serve as a megaphone for people's voices — never the judge of their values. We unlock the conditions for a more harmonious society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="a4-section bg-evergreen">
+        <div class="container">
+            <h2 class="section-title full-width fade-in" style="border-bottom-color: rgba(239,233,231,0.3);">Brand Matrix</h2>
+            <div class="fade-in">
+                <p class="label text-muted-teal">Core Identity</p>
+                <table class="brand-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>As Product</th>
+                            <th>As Organisation</th>
+                            <th>Personality</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Core</td>
+                            <td>Evidence-first research reports and leadership insights.</td>
+                            <td>Independent, values-aligned partnerships only.</td>
+                            <td>Grounded warmth, quiet courage.</td>
+                        </tr>
+                        <tr>
+                            <td>Extended</td>
+                            <td>Workshops, advisory, youth outreach tools.</td>
+                            <td>Cross-sector, multi-generational reach.</td>
+                            <td>Human precision, humble authority.</td>
+                        </tr>
+                        <tr>
+                            <td>Symbols</td>
+                            <td>Heritage stars, wind-flow motifs.</td>
+                            <td>Warm photography, Golden accents.</td>
+                            <td>Unposed authenticity, soft anchoring.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="a4-section" style="padding: 0;">
+        <div class="color-grid">
+            <div class="color-card bg-evergreen">
+                <p class="label">Primary</p>
+                <h3>Evergreen</h3>
+                <p>#132A13</p>
+                <p class="desc">Serious, assured, and deeply grounded. Used for primary headers and formal communications.</p>
+            </div>
+            <div class="color-card bg-parchment">
+                <p class="label">Base</p>
+                <h3>Parchment</h3>
+                <p>#EFE9E7</p>
+                <p class="desc">The dominant background colour. Provides breathing space and a welcoming feel.</p>
+            </div>
+            <div class="color-card bg-muted-teal">
+                <p class="label">Accent</p>
+                <h3>Muted Teal</h3>
+                <p>#6BA292</p>
+                <p class="desc">Brings curiosity and depth to the foreground. Used for hero sections and dividers.</p>
+            </div>
+            <div class="color-card bg-golden-orange">
+                <p class="label">Highlight</p>
+                <h3>Golden Orange</h3>
+                <p>#E59500</p>
+                <p class="desc">Represents courage and warmth. Used for accents and key points of emphasis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="a4-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Typography</h2>
+            <div class="grid-2 fade-in" style="margin-top: 2rem;">
+                <div class="type-showcase">
+                    <p class="label text-muted-teal">Display Font</p>
+                    <h1>AaBb</h1>
+                    <h3>Cormorant Garamond</h3>
+                    <p class="alphabet-box">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+                </div>
+                <div class="type-showcase body">
+                    <p class="label text-golden-orange">Body Font</p>
+                    <h1>AaBb</h1>
+                    <h3>Lora</h3>
+                    <p class="alphabet-box">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="a4-section">
-        <div class="grid grid-cols-4 h-full">
-            <div class="bg-evergreen p-10 flex flex-col justify-end text-parchment">
-                <p class="text-xs uppercase mb-2">Primary</p>
-                <h3 class="font-display text-3xl mb-2">Evergreen</h3>
-                <p class="font-mono text-lg opacity-70">#132A13</p>
-            </div>
-            <div class="bg-parchment border-r border-evergreen/10 p-10 flex flex-col justify-end text-evergreen">
-                <p class="text-xs uppercase mb-2">Dominant Base</p>
-                <h3 class="font-display text-3xl mb-2">Parchment</h3>
-                <p class="font-mono text-lg opacity-70">#EFE9E7</p>
-            </div>
-            <div class="bg-muted-teal p-10 flex flex-col justify-end text-evergreen">
-                <p class="text-xs uppercase mb-2">Secondary</p>
-                <h3 class="font-display text-3xl mb-2">Muted Teal</h3>
-                <p class="font-mono text-lg opacity-70">#6BA292</p>
-            </div>
-            <div class="bg-golden-orange p-10 flex flex-col justify-end text-evergreen">
-                <p class="text-xs uppercase mb-2">Highlight</p>
-                <h3 class="font-display text-3xl mb-2">Golden Orange</h3>
-                <p class="font-mono text-lg opacity-70">#E59500</p>
+        <div class="container">
+            <h2 class="section-title fade-in">Photography</h2>
+            <div class="photo-grid fade-in">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/casey-horner-OopzSWabsWE-unsplash.jpg" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/doncoombez-221gj4iC8hk-unsplash.jpg" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/nathan-dumlao-EwaV3HjwmUo-unsplash.jpg" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_2i266j2i266j2i26.png" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_77skwy77skwy77sk.png" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_bsiaeibsiaeibsia.png" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_e74p8se74p8se74p.png" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_oviqmtoviqmtoviq.png" alt="PCL Photo">
+                <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/Gemini_Generated_Image_pa4q7cpa4q7cpa4q.png" alt="PCL Photo">
             </div>
         </div>
     </section>
 
-    <section class="a4-section p-16 justify-center">
-        <div class="max-w-7xl mx-auto w-full space-y-12">
-            <div class="grid grid-cols-2 gap-8 items-center border-b border-evergreen/20 pb-10">
-                <div>
-                    <h2 class="text-xs tracking-widest uppercase text-muted-teal mb-4">Display Font</h2>
-                    <h1 class="font-display text-[8rem] leading-none text-evergreen">AaBb</h1>
-                    <p class="font-display text-3xl">Cormorant Garamond</p>
+    <section class="a4-section">
+        <div class="container">
+            <h2 class="section-title fade-in">In Practice</h2>
+            <div class="presentation-grid fade-in">
+                <div class="slide bg-evergreen">
+                    <h3 style="font-size: 1.25rem;">People Centric<br>Leadership.</h3>
+                    <p class="text-muted-teal" style="font-style: italic; font-size: 0.8rem;">Rooted in evidence.</p>
                 </div>
-                <p class="text-lg leading-relaxed">Used for headlines and hero statements. Scholarly precision with a human touch.</p>
-            </div>
-            <div class="grid grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 class="text-xs tracking-widest uppercase text-golden-orange mb-4">Body Font</h2>
-                    <h1 class="font-body text-[7rem] leading-none text-evergreen">AaBb</h1>
-                    <p class="font-body text-3xl">Lora</p>
+                <div class="slide bg-evergreen">
+                    <img src="https://raw.githubusercontent.com/karolina-afk/Pam-logos/main/casey-horner-OopzSWabsWE-unsplash.jpg" class="slide-bg">
+                    <h3 style="position: relative; z-index: 10;">Introduction & Overview</h3>
                 </div>
-                <p class="text-lg leading-relaxed">Contemporary serif with roots in calligraphy. Balanced, sturdy, and warm.</p>
+                <div class="slide bg-parchment">
+                    <div style="border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; margin-bottom: 10px; font-size: 0.7rem; font-weight: bold;">Lorem Ipsum Sit Amet</div>
+                    <p style="font-size: 0.5rem; color: var(--golden-orange); font-style: italic; margin-bottom: 5px;">Observation and insight.</p>
+                    <p style="font-size: 0.4rem; opacity: 0.8;">Understanding what people truly value is one of the most powerful tools we have for connection.</p>
+                </div>
+                <div class="slide bg-muted-teal">
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; margin-bottom: 10px; font-size: 0.7rem; font-weight: bold;">Credible Evidence</div>
+                    <p style="font-size: 0.4rem;">PCL delivers freely accessible research that bridges the gap between abstract academic research and commercial consultancy.</p>
+                </div>
+                <div class="slide bg-evergreen">
+                   <div style="height: 60%; width: 100%; border-left: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2); display: flex; align-items: flex-end; gap: 4px; padding: 5px;">
+                        <div style="width: 15%; height: 40%; background: var(--muted-teal);"></div>
+                        <div style="width: 15%; height: 75%; background: var(--golden-orange);"></div>
+                        <div style="width: 15%; height: 55%; background: var(--muted-teal);"></div>
+                        <div style="width: 15%; height: 90%; background: var(--golden-orange);"></div>
+                   </div>
+                </div>
+                <div class="slide bg-parchment">
+                    <h3 style="font-size: 1rem; color: var(--evergreen);">Final Summary</h3>
+                    <p style="font-size: 0.45rem; margin-top: 5px;">Built for connection through consistency and confidence.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <footer class="a4-section bg-evergreen text-center" style="min-height: auto; padding: 4rem;">
+        <p class="label" style="opacity: 0.5;">People Centric Leadership</p>
+        <p style="font-family: var(--font-display); font-style: italic; font-size: 1.5rem; opacity: 0.7;">Rooted in evidence. Built for connection.</p>
+    </footer>
 
 </body>
 </html>
